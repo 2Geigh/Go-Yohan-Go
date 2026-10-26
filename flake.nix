@@ -12,10 +12,11 @@
     devShells = nixpkgs.lib.genAttrs systems (system: {
       default = nixpkgs.legacyPackages.${system}.mkShell {
         packages = with nixpkgs.legacyPackages.${system}; [
-          clang
-          sdl3
           # docker
           # docker-compose
+          clang
+          pkg-config
+          sdl3
         ];
 
         shellHook = ''
